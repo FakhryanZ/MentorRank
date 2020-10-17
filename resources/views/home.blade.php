@@ -1,23 +1,10 @@
-@extends('layouts.app')
+@extends('navbar')
+@section('heading')
+    <div class="container">
+        <div class="card card-body my-auto">
+            <h1 class="h4 text-center">Mentor Rank</h1>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
+            <p class="mt-5">Selamat Datang di Mentor Rank, platform untuk menentukan ranking mentor anda.</p>
         </div>
     </div>
-</div>
 @endsection

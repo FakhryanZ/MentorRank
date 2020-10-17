@@ -7,7 +7,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md bg-primary navbar-dark">
-    <a href="{{ route('home') }}"><b class="navbar-brand">TOPSIS SPK</b></a>
+    <a href="{{ route('home') }}"><b class="navbar-brand">Mentor Rank</b></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="nav navbar-nav ">
             <li class="nav-item {{ Request::is('alternatif') ? 'active' : '' }}">
-                <a href=""><div class="nav-link">Alternatif</div></a>
+                <a href="{{ route('alternatif') }}"><div class="nav-link">Alternatif</div></a>
             </li>
             <li class="nav-item {{ Request::is('kriteria') ? 'active' : '' }}">
                 <a href="{{ route('kriteria') }}"><div class="nav-link">Kriteria</div></a>
