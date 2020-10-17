@@ -10,15 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('home');
+})->name('home');
 
-Route::get('/', 'KriteriaController@index')->name('kriteria');
+Route::get('/alternatif', 'AlternatifController@index')->name('alternatif');
+Route::post('/alternatif/tambah', 'AlternatifController@create');
+
+Route::get('/kriteria', 'KriteriaController@index')->name('kriteria');
 Route::get('/kriteria/edit/{id}', 'KriteriaController@edit');
 Route::put('/kriteria/update/{id}', 'KriteriaController@update');
 
-Auth::routes();
+Route::get('/foo', function () {
+    return 'Hello World';
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Auth::routes();
 
-Auth::routes();
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
