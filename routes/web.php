@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'KriteriaController@index')->name('kriteria');
+Route::get('/kriteria/edit/{id}', 'KriteriaController@edit');
+Route::put('/kriteria/update/{id}', 'KriteriaController@update');
 
 Auth::routes();
 
