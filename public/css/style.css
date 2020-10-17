@@ -1,0 +1,24 @@
+h3{
+    color: white;
+}
+h4{
+    color: blue;
+}
+
+.bg{
+    background-image: -webkit-linear-gradient(left, #7f85cf, #00c6ff);
+}
+
+footer{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-image: -webkit-linear-gradient(left, #7f85cf, #00c6ff);
+    color: white;
+    text-align: left;
+}
+
+.active{
+    font-weight: bold;
+    -webkit-text-fill-color: white;
+}
