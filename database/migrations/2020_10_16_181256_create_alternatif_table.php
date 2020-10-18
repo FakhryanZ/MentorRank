@@ -19,6 +19,7 @@ class CreateAlternatifTable extends Migration
             $table->string('nama', 30);
             $table->string('pendidikan_terakhir', 5);
             $table->enum('jenis_kelamin', ['Laki-laki','Perempuan'])->default('Laki-laki');
+            $table->string('tempat_tinggal', 10);
             $table->string('no_telp',13);
             $table->timestamps();
         });

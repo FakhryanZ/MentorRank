@@ -12,6 +12,7 @@ class Alternatif extends Model
         'nama',
         'pendidikan_terakhir',
         'jenis_kelamin',
+        'tempat_tinggal',
         'no_telp',
     ];
 

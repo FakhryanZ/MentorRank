@@ -37,6 +37,16 @@
                 </div>
             </div>
         </div>
+        
+        <div class="form-group row">
+            <label for="tempat_tinggal" class="col-sm-2 col-form-label">Tempat Tinggal</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control @error('tempat_tinggal') is-invalid @enderror" id="tempat_tinggal" name="tempat_tinggal" value="{{ old('tempat_tinggal') }}">
+            @error('tempat_tinggal')
+                <div class="alert alert-danger"> {{$message}} </div>
+            @enderror
+            </div>
+        </div>
         <div class="form-group row">
             <label for="no_telp" class="col-sm-2 col-form-label">No Telp</label>
             <div class="col-sm-10">
@@ -59,6 +69,7 @@
             <th scope="col">Nama</th>
             <th scope="col">Pendidikan Terakhir</th>
             <th scope="col">Jenis Kelamin</th>
+            <th scope="col">Tempat Tinggal</th>
             <th scope="col">No Telp.</th>
             <th scope="col">Aksi</th>
           </tr>
@@ -70,6 +81,7 @@
                 <td>{{$item->nama}}</td>
                 <td>{{$item->pendidikan_terakhir}}</td>
                 <td>{{$item->jenis_kelamin}}</td>
+                <td>{{$item->tempat_tinggal}}</td>
                 <td>{{$item->no_telp}}</td>
                 <td>
 					<a href="{{url('alternatif/edit')}}/{{$item->id}}" class="btn btn-warning">Edit</a>

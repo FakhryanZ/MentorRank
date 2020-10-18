@@ -40,6 +40,15 @@
             <div class="form-group row">
                 <label for="nama" class="col-sm-2 col-form-label">No Telp</label>
                 <div class="col-sm-10">
+                    <input type="text" class="form-control @error('tempat_tinggal') is-invalid @enderror" id="tempat_tinggal" name="tempat_tinggal" value="{{ $alternatif->tempat_tinggal }}">
+                    @error('tempat_tinggal')
+                        <div class="alert alert-danger"> {{$message}} </div>
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="nama" class="col-sm-2 col-form-label">No Telp</label>
+                <div class="col-sm-10">
                     <input type="text" class="form-control @error('no_telp') is-invalid @enderror" id="no_telp" name="no_telp" value="{{ $alternatif->no_telp }}">
                     @error('no_telp')
                         <div class="alert alert-danger"> {{$message}} </div>
