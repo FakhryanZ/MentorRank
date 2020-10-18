@@ -8,7 +8,7 @@
         
 		<div class="form-group row">
             <label class="col-sm-2">Kriteria</label>
-            <input type="text" name="kriteria" class="form-control col-sm-10" placeholder="Nama Kriteria" value="{{$kriteria->kriteria}}">
+            <input type="text" name="kriteria" class="form-control col-sm-10" placeholder="Nama Kriteria" value="{{$kriteria->nama_kriteria}}">
             @if($errors->has('kriteria'))
                 <div class="text-danger">
                     {{$errors->first('kriteria')}}

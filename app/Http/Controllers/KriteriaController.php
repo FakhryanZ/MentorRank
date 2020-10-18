@@ -27,7 +27,7 @@ class KriteriaController extends Controller
         if (Kriteria::count() < 1) {
             Kriteria::create([
                 'id' => 1,
-                'kriteria' => $request->kriteria,
+                'nama_kriteria' => $request->kriteria,
                 'bobot' => $request->bobot,
                 'status' => $request->status
             ]);

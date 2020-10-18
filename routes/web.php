@@ -16,6 +16,9 @@ Route::get('/', function () {
 
 Route::get('/alternatif', 'AlternatifController@index')->name('alternatif');
 Route::post('/alternatif/tambah', 'AlternatifController@create');
+Route::get('/alternatif/edit/{id}', 'AlternatifController@edit');
+Route::put('/alternatif/update/{id}', 'AlternatifController@update');
+Route::get('/alternatif/hapus/{id}', 'AlternatifController@delete');
 
 Route::get('/kriteria', 'KriteriaController@index')->name('kriteria');
 Route::get('/kriteria/edit/{id}', 'KriteriaController@edit');
@@ -25,6 +28,9 @@ Route::get('/kriteria/hapus/{id}', 'KriteriaController@hapus');
 
 Route::get('/datanilai', 'DataNilaiController@index')->name('datanilai');
 Route::post('/datanilai', 'DataNilaiController@create');
+Route::get('/datanilai/edit/{id}', 'DataNilaiController@edit');
+Route::put('/datanilai/update/{id}', 'DataNilaiController@update');
+Route::get('/datanilai/hapus/{id}', 'DataNilaiController@delete');
 
 // Auth::routes();
 
