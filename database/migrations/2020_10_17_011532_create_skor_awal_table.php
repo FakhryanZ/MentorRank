@@ -17,8 +17,8 @@ class CreateSkorAwalTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('alternatif_id');
             $table->unsignedBigInteger('kriteria_id');
-            $table->foreign('alternatif_id')->references('id')->on('alternatif');
-            $table->foreign('kriteria_id')->references('id')->on('kriteria');
+            $table->foreign('alternatif_id')->references('id')->on('alternatif')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('kriteria_id')->references('id')->on('kriteria')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('nilai');
             $table->timestamps();
         });
