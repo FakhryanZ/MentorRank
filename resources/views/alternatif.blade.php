@@ -4,7 +4,7 @@
 
 <div class="card card-body">
     <h1 class="h4 text-primary">Tambah Alternatif</h1>
-    <form action="{{url('alternatif')}}" method="post">
+    <form action="{{url('alternatif/tambah')}}" method="post">
         {{ csrf_field() }}
         <div class="form-group row">
           <label for="nama" class="col-sm-2 col-form-label">Nama</label>
@@ -28,11 +28,11 @@
             <label for="jeniskelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
             <div class="col-sm-10">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki-laki" value="laki-laki" checked>
+                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki-laki" value="Laki-laki" checked>
                     <label class="form-check-label" for="laki-laki">Laki - Laki</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="perempuan">
+                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
                     <label class="form-check-label" for="perempuan">Perempuan</label>
                 </div>
             </div>
@@ -52,7 +52,7 @@
 
 <div class="card card-body mt-5">
     <h1 class="h4 text-primary">Daftar Alternatif</h1>
-    <table class="table table-bordered">
+    <table class="table table-bordered text-center">
         <thead>
           <tr>
             <th scope="col">No</th>

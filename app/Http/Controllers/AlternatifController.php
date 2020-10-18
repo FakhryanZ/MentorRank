@@ -31,6 +31,43 @@ class AlternatifController extends Controller
         $data->no_telp = $request->no_telp;
         
         $data->save();
+
+        return redirect()->route('alternatif');
+    }
+
+    public function edit($id)
+    {
+        $data = Alternatif::find($id);
+
+        return view('alternatif_edit', ['alternatif'=>$data]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request,[
+            'nama' => 'required',
+            'pendidikan_terakhir' => 'required',
+            'no_telp' => 'required'
+        ]);
+
+        $alternatif = Alternatif::find($id);
+        $alternatif->nama = $request->nama;
+        $alternatif->pendidikan_terakhir = $request->pendidikan_terakhir;
+        $alternatif->jenis_kelamin = $request->jenis_kelamin;
+        $alternatif->no_telp = $request->no_telp;
+
+        $alternatif->save();
+
+        return redirect()->route('alternatif');
+    }
+
+
+    public function delete($id)
+    {
+        $data = Alternatif::find($id);
+        $data->delete();
+
+        return redirect()->route('alternatif');
     }
 }
 
