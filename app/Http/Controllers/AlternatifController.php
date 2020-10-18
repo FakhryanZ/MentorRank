@@ -20,6 +20,7 @@ class AlternatifController extends Controller
             'nama' => 'required|max:30',
             'pendidikan_terakhir' => 'required|max:5',
             'jenis_kelamin' => 'required',
+            'tempat_tinggal' => 'required|max:20',
             'no_telp' => 'required|digits_between:11,13'
         ]);
 
@@ -28,6 +29,7 @@ class AlternatifController extends Controller
         $data->nama = $request->nama;
         $data->pendidikan_terakhir = $request->pendidikan_terakhir;
         $data->jenis_kelamin = $request->jenis_kelamin;
+        $data->tempat_tinggal = $request->tempat_tinggal;
         $data->no_telp = $request->no_telp;
         
         $data->save();
@@ -45,15 +47,18 @@ class AlternatifController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'nama' => 'required',
-            'pendidikan_terakhir' => 'required',
-            'no_telp' => 'required'
+            'nama' => 'required|max:30',
+            'pendidikan_terakhir' => 'required|max:5',
+            'jenis_kelamin' => 'required',
+            'tempat_tinggal' => 'required|max:20',
+            'no_telp' => 'required|digits_between:11,13'
         ]);
 
         $alternatif = Alternatif::find($id);
         $alternatif->nama = $request->nama;
         $alternatif->pendidikan_terakhir = $request->pendidikan_terakhir;
         $alternatif->jenis_kelamin = $request->jenis_kelamin;
+        $alternatif->tempat_tinggal = $request->tempat_tinggal;
         $alternatif->no_telp = $request->no_telp;
 
         $alternatif->save();
