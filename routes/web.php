@@ -20,6 +20,8 @@ Route::post('/alternatif/tambah', 'AlternatifController@create');
 Route::get('/kriteria', 'KriteriaController@index')->name('kriteria');
 Route::get('/kriteria/edit/{id}', 'KriteriaController@edit');
 Route::put('/kriteria/update/{id}', 'KriteriaController@update');
+Route::post('/kriteria/tambah','KriteriaController@tambah');
+Route::get('/kriteria/hapus/{id}', 'KriteriaController@hapus');
 
 Route::get('/datanilai', 'DataNilaiController@index')->name('datanilai');
 Route::post('/datanilai', 'DataNilaiController@create');
