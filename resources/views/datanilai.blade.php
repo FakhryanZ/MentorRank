@@ -9,7 +9,7 @@
                 <label class="col-sm-2 col-form-label">Mentor</label>
                 <div class="col-sm-10">
                     <div class="form-group">
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select class="form-control" name="mentor">
                         <option value="null">== Pilih Mentor ==</option>
                         @foreach ($alternatif as $alteritem)
                             <option value={{ $alteritem->id }}> {{$alteritem->nama}} </option>
@@ -22,10 +22,11 @@
                 <label class="col-sm-2 col-form-label">Kriteria</label>
                 <div class="col-sm-10">
                     <div class="form-group">
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select class="form-control" name="kriteria">
+                            
                         <option value="null">== Pilih Kriteria ==</option>
                         @foreach ($kriteria as $kriteriaitem)
-                            <option value={{ $kriteriaitem->id }}> {{$kriteriaitem->nama}} </option>
+                            <option value={{ $kriteriaitem->id }}> {{$kriteriaitem->nama_kriteria}} </option>
                         @endforeach
                         </select>
                     </div>
@@ -46,7 +47,7 @@
 
     <div class="card card-body mt-5">
         <h1 class="h4 text-primary">Data Nilai</h1>
-        <table class="table table-bordered">
+        <table class="table table-bordered text-center">
             <thead>
                 <tr>
                     <th scope="col">No</th>
@@ -57,13 +58,19 @@
                 </tr>
             </thead>
             <tbody>
+            @foreach ($skor_awal as $item)
                 <tr>
                     <th scope="row">1</th>
-                    <td>xxxxx</td>
-                    <td>xxxxx</td>
-                    <td>xxxxx</td>
-                    <td>xxxxx</td>
+                    <td>{{ $item->nama }}</td>
+                    <td>{{$item->nama_kriteria}}</td>
+                    <td>{{$item->nilai}}</td>
+                    <td>
+                        <a href="{{url('datanilai/edit')}}/{{$item->id}}" class="btn btn-warning">Edit</a>
+                        |
+                        <a href="{{url('datanilai/hapus')}}/{{$item->id}}" class="btn btn-danger" onclick="return confirm('Menghapus data akan berpengaruh pada perhitungan, memungkinkan terjadi perubahan data !!')">Hapus</a>
+                    </td>
                 </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
