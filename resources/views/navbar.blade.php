@@ -20,8 +20,8 @@
             <li class="nav-item {{ Request::is('kriteria') ? 'active' : '' }}">
                 <a href="{{ route('kriteria') }}"><div class="nav-link">Kriteria</div></a>
             </li>
-            <li class="nav-item {{ Request::is('detailkriteria') ? 'active' : '' }}">
-                <a href=""><div class="nav-link">Detail Kriteria</div></a>
+            <li class="nav-item {{ Request::is('datanilai') ? 'active' : '' }}">
+                <a href="/datanilai"><div class="nav-link">Data Nilai</div></a>
             </li>
             <li class="nav-item {{ Request::is('topsis') ? 'active' : '' }}">
                 <a href=""><div class="nav-link">Perhitungan Topsis</div></a>

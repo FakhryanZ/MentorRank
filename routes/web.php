@@ -21,9 +21,8 @@ Route::get('/kriteria', 'KriteriaController@index')->name('kriteria');
 Route::get('/kriteria/edit/{id}', 'KriteriaController@edit');
 Route::put('/kriteria/update/{id}', 'KriteriaController@update');
 
-Route::get('/foo', function () {
-    return 'Hello World';
-});
+Route::get('/datanilai', 'DataNilaiController@index')->name('datanilai');
+Route::post('/datanilai', 'DataNilaiController@create');
 
 // Auth::routes();
 
