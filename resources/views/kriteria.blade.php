@@ -29,7 +29,7 @@
 		<div class="row">
 		<label class="col-sm-2">Status</label>
 		<select type="text" name="status" class="form-control col-sm-10">
-			<option value="" disabled selected>Pilih Status</option>
+			<option value="" disabled selected> == Pilih Status ==</option>
 			<option value="Cost" @if(old('status')== 'Cost') selected="selected" @endif>Cost</option>
 			<option value="Benefit" @if(old('status')== 'Benefit') selected="selected" @endif>Benefit</option>
 		</select>

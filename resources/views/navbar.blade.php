@@ -24,7 +24,7 @@
                 <a href="/datanilai"><div class="nav-link">Data Nilai</div></a>
             </li>
             <li class="nav-item {{ Request::is('topsis') ? 'active' : '' }}">
-                <a href=""><div class="nav-link">Perhitungan Topsis</div></a>
+                <a href="{{ route('topsis') }}"><div class="nav-link">Perhitungan Topsis</div></a>
             </li>
         </ul>
     </div>
