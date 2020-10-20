@@ -16,7 +16,7 @@ class DataNilaiController extends Controller
         $kriteria = Kriteria::all();
         $skor_awal = DB::table('skor_awal')->join('alternatif', 'skor_awal.alternatif_id', '=', 'alternatif.id')->join('kriteria', 'skor_awal.kriteria_id', '=', 'kriteria.id')
         ->select('skor_awal.*', 'kriteria.nama_kriteria', 'alternatif.nama')
-        ->get();
+        ->paginate(5);
 
         return view('datanilai', [
             'alternatif' => $alternatif,

@@ -58,9 +58,10 @@
                 </tr>
             </thead>
             <tbody>
+            <input type="hidden" value="{{$no = ($skor_awal->currentPage()-1)*$skor_awal->perPage()}}">
             @foreach ($skor_awal as $item)
                 <tr>
-                    <th scope="row">1</th>
+                    <th scope="row"> {{++$no}} </th>
                     <td>{{ $item->nama }}</td>
                     <td>{{$item->nama_kriteria}}</td>
                     <td>{{$item->nilai}}</td>
@@ -73,5 +74,11 @@
             @endforeach
             </tbody>
         </table>
+        Halaman : {{ $skor_awal->currentPage() }} <br/>
+        Jumlah Data : {{ $skor_awal->total() }} <br/>
+        Data Per Halaman : {{ $skor_awal->perPage() }} <br/>
+    
+    
+        {{ $skor_awal->links() }}
     </div>
 @endsection
