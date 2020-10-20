@@ -75,9 +75,10 @@
           </tr>
         </thead>
         <tbody>
+        <input type="hidden" value="{{$no = ($alternatif->currentPage()-1)*$alternatif->perPage()}}">
         @foreach ($alternatif as $item)
             <tr>
-                <th scope="row">1</th>
+                <th scope="row"> {{ ++$no}} </th>
                 <td>{{$item->nama}}</td>
                 <td>{{$item->pendidikan_terakhir}}</td>
                 <td>{{$item->jenis_kelamin}}</td>
@@ -92,6 +93,12 @@
         @endforeach     
         </tbody>
       </table>
+        Halaman : {{ $alternatif->currentPage() }} <br/>
+        Jumlah Data : {{ $alternatif->total() }} <br/>
+        Data Per Halaman : {{ $alternatif->perPage() }} <br/>
+    
+    
+        {{ $alternatif->links() }}
 </div>
 
 @endsection

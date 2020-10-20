@@ -9,7 +9,7 @@ class AlternatifController extends Controller
 {
     public function index()
     {
-        $data = Alternatif::all();
+        $data = Alternatif::paginate(5);
 
         return view('alternatif', ['alternatif'=>$data]);
     }
