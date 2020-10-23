@@ -32,6 +32,9 @@ Route::get('/datanilai/edit/{id}', 'DataNilaiController@edit');
 Route::put('/datanilai/update/{id}', 'DataNilaiController@update');
 Route::get('/datanilai/hapus/{id}', 'DataNilaiController@delete');
 
+Route::get('/datanilaitambah', 'DataNilaiController@index2')->name('datanilaitambah');
+Route::post('/datanilai/tambah', 'DataNilaiController@createall');
+
 Route::get('/topsis', 'TopsisController@index')->name('topsis');
 
 // Auth::routes();
