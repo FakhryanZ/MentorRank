@@ -29,6 +29,17 @@ class DataNilaiController extends Controller
         ]);
     }
 
+    public function index2()
+    {
+        $alternatif = Alternatif::all();
+        $kriteria = Kriteria::all();
+
+        return view('datanilaitambah', [
+            'alternatif' => $alternatif,
+            'kriteria' => $kriteria
+        ]);
+    }
+
     public function create(Request $request)
     {
         $validateData = $request->validate([
@@ -43,6 +54,21 @@ class DataNilaiController extends Controller
         
         $data->save();
 
+        return redirect()->route('datanilai');
+    }
+
+    public function createall(Request $request)
+    {
+        $kriteria = Kriteria::get();
+        foreach($kriteria as $k){
+            $alternatif_id = $request->mentor;
+            $krit = str_replace(' ', '', $k->nama_kriteria);
+                DataNilai::create([
+                    'alternatif_id' => $alternatif_id,
+                    'kriteria_id' => $k->id,
+                    'nilai' => $request->$krit
+                ]);
+        }
         return redirect()->route('datanilai');
     }
 
