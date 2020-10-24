@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class AlternatifController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $data = Alternatif::paginate(5);
