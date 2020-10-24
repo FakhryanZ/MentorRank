@@ -27,6 +27,14 @@
                 <a href="{{ route('topsis') }}"><div class="nav-link">Perhitungan Topsis</div></a>
             </li>
         </ul>
+       
+        @if ( Auth::check() )
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="/logout"><div class="nav-link">Logout</div></a>
+            </li>
+        </ul>
+        @endif
     </div>
 </nav>
 <div class="bg">
