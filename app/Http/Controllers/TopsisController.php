@@ -62,78 +62,80 @@ class TopsisController extends Controller
         foreach($data as $nama=>$krit){
             foreach($namakriteria as $k){
               $normalisasi[$k][$index] = round(($krit[$k]/sqrt($nilai_kuadrat[$k])),6);
+              $arrnormalterbobot[$k][$index]= $normalisasi[$k][$index]*$bobot[$k];
             }
             $index++;           
         }
 
-        // dd($normalisasi);
+        // dd($arrnormalterbobot);
+        // // dd($normalisasi);
 
-        $indexnormalisasi = 0;
-        $arrnilainormalisasi = [];
-        foreach ($normalisasi as $normal => $nilainormal) {
-          $arrnilainormalisasi[$indexnormalisasi] = $nilainormal;
-          $indexnormalisasi++;
-        }
+        // $indexnormalisasi = 0;
+        // $arrnilainormalisasi = [];
+        // foreach ($normalisasi as $normal => $nilainormal) {
+        //   $arrnilainormalisasi[$indexnormalisasi] = $nilainormal;
+        //   $indexnormalisasi++;
+        // }
 
-        // dd($arrnilainormalisasi, $normalisasi);
+        // // dd($arrnilainormalisasi, $normalisasi);
 
-        $arrnormalterbobot=[];
-        for ($i=0; $i < count($arrnilainormalisasi); $i++) { 
-          for ($j=0; $j < count($arrnilaibobot); $j++) {
-            $arrnormalterbobot[$i][$j]=$arrnilainormalisasi[$i][$j]*$arrnilaibobot[$i];
-          }
-        }
+        // $arrnormalterbobot=[];
+        // for ($i=0; $i < count($arrnilainormalisasi); $i++) { 
+        //   for ($j=0; $j < count($arrnilaibobot); $j++) {
+        //     $arrnormalterbobot[$i][$j]=$arrnilainormalisasi[$i][$j]*$arrnilaibobot[$i];
+        //   }
+        // }
         
-        dd($arrnormalterbobot);
+        // dd($arrnormalterbobot);
 
 
-        $idealpositif=[];
-        for ($i=0; $i < count($arrnormalterbobot); $i++) { 
-          $idealpositif[$i]=max($arrnormalterbobot[$i]);
-        }
+        // $idealpositif=[];
+        // for ($i=0; $i < count($arrnormalterbobot); $i++) { 
+        //   $idealpositif[$i]=max($arrnormalterbobot[$i]);
+        // }
 
-        // dd($idealpositif);
+        // // dd($idealpositif);
 
-        // dd($arrnormalterbobot, $idealpositif);
+        // // dd($arrnormalterbobot, $idealpositif);
         
-        $idealnegatif=[];
-        for ($i=0; $i < count($arrnormalterbobot); $i++) { 
-          $idealnegatif[$i]=min($arrnormalterbobot[$i]);
-        }
+        // $idealnegatif=[];
+        // for ($i=0; $i < count($arrnormalterbobot); $i++) { 
+        //   $idealnegatif[$i]=min($arrnormalterbobot[$i]);
+        // }
 
-        // dd($idealnegatif);
+        // // dd($idealnegatif);
 
-        $jarakidealpositif=[];
-        $tampung=0;
-        for ($i=0; $i < count($arrnormalterbobot); $i++) { 
-          for ($j=0; $j < count($idealpositif); $j++) { 
-            $tampung += pow(($arrnormalterbobot[$j][$i]-$idealpositif[$j]), 2);
-          }
-          // dd(sqrt($tampung));
-          $jarakidealpositif[$i]=sqrt($tampung);
-          $tampung = 0;
-        }
-        // dd($jarakidealpositif);
+        // $jarakidealpositif=[];
+        // $tampung=0;
+        // for ($i=0; $i < count($arrnormalterbobot); $i++) { 
+        //   for ($j=0; $j < count($idealpositif); $j++) { 
+        //     $tampung += pow(($arrnormalterbobot[$j][$i]-$idealpositif[$j]), 2);
+        //   }
+        //   // dd(sqrt($tampung));
+        //   $jarakidealpositif[$i]=sqrt($tampung);
+        //   $tampung = 0;
+        // }
+        // // dd($jarakidealpositif);
 
 
-        $jarakidealnegatif=[];
-        $tampung=0;
-        for ($i=0; $i < count($arrnormalterbobot); $i++) { 
-          for ($j=0; $j < count($idealnegatif); $j++) { 
-            $tampung += pow(($arrnormalterbobot[$j][$i]-$idealnegatif[$j]), 2);
-          }
-          // dd(sqrt($tampung));
-          $jarakidealnegatif[$i]=sqrt($tampung);
-          $tampung = 0;
-        }
-        // dd($jarakidealnegatif);
+        // $jarakidealnegatif=[];
+        // $tampung=0;
+        // for ($i=0; $i < count($arrnormalterbobot); $i++) { 
+        //   for ($j=0; $j < count($idealnegatif); $j++) { 
+        //     $tampung += pow(($arrnormalterbobot[$j][$i]-$idealnegatif[$j]), 2);
+        //   }
+        //   // dd(sqrt($tampung));
+        //   $jarakidealnegatif[$i]=sqrt($tampung);
+        //   $tampung = 0;
+        // }
+        // // dd($jarakidealnegatif);
 
-        $nilaiv=[];
-        for ($i=0; $i < count($jarakidealpositif); $i++) { 
-          $nilaiv[$i]=$jarakidealnegatif[$i]/($jarakidealnegatif[$i]+$jarakidealpositif[$i]);
-        }
+        // $nilaiv=[];
+        // for ($i=0; $i < count($jarakidealpositif); $i++) { 
+        //   $nilaiv[$i]=$jarakidealnegatif[$i]/($jarakidealnegatif[$i]+$jarakidealpositif[$i]);
+        // }
 
-        // dd($nilaiv);
+        // // dd($nilaiv);
         
 
         return view('topsis',['topsis'=>$topsis, 'alternatif'=>$alternatif, 'kriteria'=>$kriteria,

@@ -88,11 +88,9 @@
                   <td align='center'>A{{$index}}</td>
                   <td>{{$nama}}</td>
                   
-                  {{-- {{dd($arrnormalterbobot)}} --}}
-                  {{-- @foreach($arrnormalterbobot as $k)
-                  {{dd($k)}}
-                  <td align='center'>{{$k}}</td>
-                  @endforeach --}}
+                  @foreach($namakriteria as $k)
+                    <td align='center'>{{$arrnormalterbobot[$k][$index-1]}}</td>
+                  @endforeach
                 </tr>
                 @endforeach
                 </tbody>
