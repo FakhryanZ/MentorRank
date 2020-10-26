@@ -92,80 +92,35 @@ class TopsisController extends Controller
           $index++;
         }
 
-        
-
-        // dd($arrnormalterbobot);
-        // // dd($normalisasi);
-
-        // $indexnormalisasi = 0;
-        // $arrnilainormalisasi = [];
-        // foreach ($normalisasi as $normal => $nilainormal) {
-        //   $arrnilainormalisasi[$indexnormalisasi] = $nilainormal;
-        //   $indexnormalisasi++;
-        // }
-
-        // // dd($arrnilainormalisasi, $normalisasi);
-
-        // $arrnormalterbobot=[];
-        // for ($i=0; $i < count($arrnilainormalisasi); $i++) { 
-        //   for ($j=0; $j < count($arrnilaibobot); $j++) {
-        //     $arrnormalterbobot[$i][$j]=$arrnilainormalisasi[$i][$j]*$arrnilaibobot[$i];
-        //   }
-        // }
-        
-        // dd($arrnormalterbobot);
-
-
-        // $idealpositif=[];
-        // for ($i=0; $i < count($arrnormalterbobot); $i++) { 
-        //   $idealpositif[$i]=max($arrnormalterbobot[$i]);
-        // }
-
-        // $idealpositif = [];
-        // foreach ($namakriteria as $k) {
-        //   for ($i=0; $i < count($arrnormalterbobot); $i++) { 
-        //     # code...
-        //     dd($idealpositif[$k][$i]);
-        //     $idealpositif[$i][$k] = max($arrnormalterbobot[$i]);
-        //   }
-        // }
+        $i=0;                    
+        $V=array();
+        $Y=array();
+        $Z=array();                        
+        $hasilakhir=array();
+        $label_alt = array();
+        $nama_alt = array();
+        $vi = array();
+        foreach ($data as $nama => $krit) {
+          $i = $i +1;
+          array_push($nama_alt,$nama);
+          $n = "A" . $i;
+          array_push($label_alt,$n);  
+          foreach($kriteria as $k){
+            $V[$i-1]=$v_akhir[$i-1];
+          }
+        }
+        $tampung = array();
+        $vi = $V;
+        $length = count($label_alt);
+        for ($i=0; $i < $length; $i++) { 
+          array_push($tampung,array($label_alt[$i],$nama_alt[$i],$vi[$i]));
+        }
+        array_multisort(array_map(function($element){
+            return $element[2];
+          }, $tampung),SORT_DESC, $tampung);
+        $sorting = count($tampung);
 
 
-        // // dd($arrnormalterbobot, $idealpositif);
-        
-        // $idealnegatif=[];
-        // for ($i=0; $i < count($arrnormalterbobot); $i++) { 
-        //   $idealnegatif[$i]=min($arrnormalterbobot[$i]);
-        // }
-
-        // // dd($idealnegatif);
-
-        // $jarakidealpositif=[];
-        // $tampung=0;
-        
-        // for ($i=0; $i < count($arrnormalterbobot); $i++) { 
-        //   for ($j=0; $j < count($yplus); $j++) { 
-        //     dd($arrnormalterbobot);
-        //     // $tampung += pow(($arrnormalterbobot[$j][$i]-$yplus[$j]), 2);
-        //   }
-        //   // dd(sqrt($tampung));
-        //   $jarakidealpositif[$i]=sqrt($tampung);
-        //   $tampung = 0;
-        // }
-        // dd($jarakidealpositif);
-
-
-        // $jarakidealnegatif=[];
-        // $tampung=0;
-        // for ($i=0; $i < count($arrnormalterbobot); $i++) { 
-        //   for ($j=0; $j < count($idealnegatif); $j++) { 
-        //     $tampung += pow(($arrnormalterbobot[$j][$i]-$idealnegatif[$j]), 2);
-        //   }
-        //   // dd(sqrt($tampung));
-        //   $jarakidealnegatif[$i]=sqrt($tampung);
-        //   $tampung = 0;
-        // }
-        // dd($jarakidealnegatif);
 
         // $nilaiv=[];
         // for ($i=0; $i < count($jarakidealpositif); $i++) { 
@@ -186,6 +141,8 @@ class TopsisController extends Controller
             'idealnegatif' => $ymin,
             'dplusnormalisasi' => $dplusnormalisasi,
             'dminnormalisasi' => $dminnormalisasi,
+            'v_akhir' =>$v_akhir,
+            'sorting'=>$sorting, 'tampung'=>$tampung
             ]);
     }
 }
