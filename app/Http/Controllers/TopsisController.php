@@ -25,6 +25,9 @@ class TopsisController extends Controller
         $kriterias =array();
         $status=array();
 
+        $yplus=array();
+        $ymin=array();
+
         foreach($tampil as $row){
           if(!isset($data[$row->nama])){
             $data[$row->nama]=array();
@@ -49,12 +52,12 @@ class TopsisController extends Controller
         // dd($namakriteria);  
         // dd($bobot);
 
-        $indexbobot = 0;
-        $arrnilaibobot = [];
-        foreach ($bobot as $bot => $nilaibobot) {
-          $arrnilaibobot[$indexbobot] = $nilaibobot;
-          $indexbobot++;
-        }
+        // $indexbobot = 0;
+        // $arrnilaibobot = [];
+        // foreach ($bobot as $bot => $nilaibobot) {
+        //   $arrnilaibobot[$indexbobot] = $nilaibobot;
+        //   $indexbobot++;
+        // }
         
         $index = 0;
         $x=1;
@@ -63,9 +66,12 @@ class TopsisController extends Controller
             foreach($namakriteria as $k){
               $normalisasi[$k][$index] = round(($krit[$k]/sqrt($nilai_kuadrat[$k])),6);
               $arrnormalterbobot[$k][$index]= $normalisasi[$k][$index]*$bobot[$k];
+              $yplus[$k]=($status[$k]=='Benefit' ? max($arrnormalterbobot[$k]) : min($arrnormalterbobot[$k]));
+                $ymin[$k]=($status[$k]=='Cost' ? max($arrnormalterbobot[$k]) : min($arrnormalterbobot[$k]));
             }
             $index++;           
         }
+        
 
         // dd($arrnormalterbobot);
         // // dd($normalisasi);
@@ -94,7 +100,15 @@ class TopsisController extends Controller
         //   $idealpositif[$i]=max($arrnormalterbobot[$i]);
         // }
 
-        // // dd($idealpositif);
+        // $idealpositif = [];
+        // foreach ($namakriteria as $k) {
+        //   for ($i=0; $i < count($arrnormalterbobot); $i++) { 
+        //     # code...
+        //     dd($idealpositif[$k][$i]);
+        //     $idealpositif[$i][$k] = max($arrnormalterbobot[$i]);
+        //   }
+        // }
+
 
         // // dd($arrnormalterbobot, $idealpositif);
         
@@ -140,10 +154,13 @@ class TopsisController extends Controller
 
         return view('topsis',['topsis'=>$topsis, 'alternatif'=>$alternatif, 'kriteria'=>$kriteria,
             'index'=>$index, 
-            'data'=>$data, 'namakriteria' =>$namakriteria, 
+            'data'=>$data,
+            'namakriteria' =>$namakriteria, 
             'bobot'=>$bobot,
             'normalisasi'=>$normalisasi,
-            'arrnormalterbobot' => $arrnormalterbobot
+            'arrnormalterbobot' => $arrnormalterbobot,
+            'idealpositif' => $yplus,
+            'idealnegatif' => $ymin,
             ]);
     }
 }
