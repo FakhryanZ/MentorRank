@@ -150,4 +150,32 @@
                 </tbody>
             </table>
   </div>
+
+  <div class="card card-body mt-4">
+    <h4>Jarak Alternatif Ideal</h4>
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="text-center">
+                    <tr>
+                      <th rowspan='2'>No.</th>
+                      <th rowspan='2'>Kode</th>
+                      <th rowspan='2'>Alternatif</th>
+                      <th>D<sup>+</sup></th>
+                      <th>D<sup>-</sup></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <div hidden>{{$index=0}}</div>
+                @foreach($data as $nama=>$krit)
+                
+                <tr>
+                  <td align='center'>{{++$index}}.</td>
+                  <td align='center'>A{{$index}}</td>
+                  <td>{{$nama}}</td>
+                  <td>{{$dplusnormalisasi[$index-1]}}</td>
+                  <td>{{$dminnormalisasi[$index-1]}}</td>
+                </tr>
+                @endforeach
+                </tbody>
+            </table>
+  </div>
 @endsection
