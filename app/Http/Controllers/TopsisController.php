@@ -28,6 +28,8 @@ class TopsisController extends Controller
         $yplus=array();
         $ymin=array();
 
+        $xbobotkrit=array();
+
         foreach($tampil as $row){
           if(!isset($data[$row->nama])){
             $data[$row->nama]=array();
@@ -66,11 +68,30 @@ class TopsisController extends Controller
             foreach($namakriteria as $k){
               $normalisasi[$k][$index] = round(($krit[$k]/sqrt($nilai_kuadrat[$k])),6);
               $arrnormalterbobot[$k][$index]= $normalisasi[$k][$index]*$bobot[$k];
+              $xbobotkrit[$k][$index]= $normalisasi[$k][$index]*$bobot[$k];
               $yplus[$k]=($status[$k]=='Benefit' ? max($arrnormalterbobot[$k]) : min($arrnormalterbobot[$k]));
                 $ymin[$k]=($status[$k]=='Cost' ? max($arrnormalterbobot[$k]) : min($arrnormalterbobot[$k]));
             }
             $index++;           
         }
+
+
+        $index=0;
+        foreach($data as $nama=>$krit){
+          foreach($namakriteria as $k){
+            if(!isset($dplus[$index])) {$dplus[$index]=0;}
+                      $dplus[$index]+=pow($yplus[$k]-$xbobotkrit[$k][$index],2);
+
+            if(!isset($dmin[$index])) {$dmin[$index]=0;}
+                      $dmin[$index]+=pow($ymin[$k]-$xbobotkrit[$k][$index],2);
+          }
+          $dplusnormalisasi[$index] = round(sqrt($dplus[$index]),6);
+          $dminnormalisasi[$index] = round(sqrt($dmin[$index]),6);
+          $v_akhir[$index] = round($dminnormalisasi[$index] / ($dplusnormalisasi[$index] + $dminnormalisasi[$index]),6);
+          // $sorting[$index] =$v_akhir[$index];
+          $index++;
+        }
+
         
 
         // dd($arrnormalterbobot);
@@ -121,15 +142,17 @@ class TopsisController extends Controller
 
         // $jarakidealpositif=[];
         // $tampung=0;
+        
         // for ($i=0; $i < count($arrnormalterbobot); $i++) { 
-        //   for ($j=0; $j < count($idealpositif); $j++) { 
-        //     $tampung += pow(($arrnormalterbobot[$j][$i]-$idealpositif[$j]), 2);
+        //   for ($j=0; $j < count($yplus); $j++) { 
+        //     dd($arrnormalterbobot);
+        //     // $tampung += pow(($arrnormalterbobot[$j][$i]-$yplus[$j]), 2);
         //   }
         //   // dd(sqrt($tampung));
         //   $jarakidealpositif[$i]=sqrt($tampung);
         //   $tampung = 0;
         // }
-        // // dd($jarakidealpositif);
+        // dd($jarakidealpositif);
 
 
         // $jarakidealnegatif=[];
@@ -142,7 +165,7 @@ class TopsisController extends Controller
         //   $jarakidealnegatif[$i]=sqrt($tampung);
         //   $tampung = 0;
         // }
-        // // dd($jarakidealnegatif);
+        // dd($jarakidealnegatif);
 
         // $nilaiv=[];
         // for ($i=0; $i < count($jarakidealpositif); $i++) { 
@@ -161,6 +184,8 @@ class TopsisController extends Controller
             'arrnormalterbobot' => $arrnormalterbobot,
             'idealpositif' => $yplus,
             'idealnegatif' => $ymin,
+            'dplusnormalisasi' => $dplusnormalisasi,
+            'dminnormalisasi' => $dminnormalisasi,
             ]);
     }
 }
