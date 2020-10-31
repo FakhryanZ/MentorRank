@@ -22,3 +22,15 @@ footer{
     font-weight: bold;
     -webkit-text-fill-color: white;
 }
+
+.tengah{
+    position: absolute;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    top:10%;
+    bottom:100%;
+    left: 0;
+    right: 0;
+}

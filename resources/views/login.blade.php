@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Login  | Mentor Rank</title>
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="tengah">
         <div class="col-md-4 offset-md-4 mt-5">
+        <body style="background-image: url({{ asset('background.jpg') }});">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="text-center">Form Login</h3>
+                <img class="barcode profile-img-card" style="border-radius: 50%; margin-left: auto;
+                margin-right: auto; display: block; border: 0.5px solid grey; height: 80px; width: 80px" src="{{asset('avatar.png')}}">
+                    <h3 class="text-center">Mentor Rank</h3>
                 </div>
                 <form action="/login/auth" method="post">
                 @csrf
@@ -42,11 +46,11 @@
                     @endif
                     <div class="form-group">
                         <label for=""><strong>Username</strong></label>
-                        <input type="text" name="username" class="form-control" placeholder="Username">
+                        <input type="text" name="username" class="form-control" placeholder="Masukkan Username">
                     </div>
                     <div class="form-group">
                         <label for=""><strong>Password</strong></label>
-                        <input type="password" name="password" class="form-control" placeholder="Password">
+                        <input type="password" name="password" class="form-control" placeholder="Masukkan Password">
                     </div>
                 </div>
                 <div class="card-footer">
