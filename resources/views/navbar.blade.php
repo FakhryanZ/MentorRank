@@ -3,9 +3,10 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
 <html>
 <head>
-	<title >{{env('APP_NAME')}}</title>
+    <link rel="shortcut icon" href="{{ asset('avatar.png') }}"">
+    <title>Mentor Rank</title>
 </head>
-<body>
+<body class="bg ">
 <nav class="navbar navbar-expand-md bg-primary navbar-dark">
     <a href="{{ route('home') }}"><b class="navbar-brand">Mentor Rank</b></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -31,13 +32,13 @@
         @if ( Auth::check() )
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="/logout"><div class="nav-link">Logout</div></a>
+                <a href="/logout"><div class="nav-link active">Logout</div></a>
             </li>
         </ul>
         @endif
     </div>
 </nav>
-<div class="bg">
+<div>
     <div class="container" >
         <div class="mt-0 bottom">
             <div class="card-body" >

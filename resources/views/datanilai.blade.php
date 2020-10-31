@@ -4,7 +4,7 @@
     <div class="card card-body">
         <h1 class="h4 text-primary">Tambah Data Nilai</h1>
         <form action="{{url('datanilai')}}" method="post">
-            <a href="{{ route('datanilaitambah') }}" class="btn btn-primary float-right">Tambah Semua Data</a><br/><br/>
+            <a href="{{ route('datanilaitambah') }}" class="btn btn-primary float-right">Tambah Semua Kriteria</a><br/><br/>
             {{ csrf_field() }}
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Mentor</label>
