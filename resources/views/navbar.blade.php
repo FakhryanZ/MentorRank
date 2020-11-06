@@ -3,10 +3,10 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
 <html>
 <head>
-    <link rel="shortcut icon" href="{{ asset('avatar.png') }}"">
+    <link rel="icon" href="images/favicon.png">
     <title>Mentor Rank</title>
 </head>
-<body class="bg ">
+<body>
 <nav class="navbar navbar-expand-md bg-primary navbar-dark">
     <a href="{{ route('home') }}"><b class="navbar-brand">Mentor Rank</b></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -38,7 +38,10 @@
         @endif
     </div>
 </nav>
-<div>
+</div class="">
+    @yield('home')
+</div>
+<div class="bg">
     <div class="container" >
         <div class="mt-0 bottom">
             <div class="card-body" >
@@ -46,7 +49,6 @@
             </div>
         </div>
     </div>
-</div>
 <footer>
     @2020 TOPSIS (Technique for Order of Preference by Similarity to Ideal Solution)
 </footer>

@@ -14,9 +14,10 @@ Route::get('/login', 'AuthController@showFormLogin')->name('login');
 Route::post('/login/auth', 'AuthController@login');
 Route::get('/logout', 'AuthController@logout')->middleware('auth');
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+// Route::get('/', function () {
+//     return view('home');
+// })->name('home');
+Route::get('/', 'TopsisController@hasil_akhir')->name('home');
 
 Route::get('/alternatif', 'AlternatifController@index')->name('alternatif');
 Route::post('/alternatif/tambah', 'AlternatifController@create');

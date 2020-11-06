@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login  | Mentor Rank</title>
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
 </head>
 <body>
     <div class="tengah">
