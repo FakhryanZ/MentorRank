@@ -211,6 +211,20 @@
     <!-- end of pricing -->
 
 
+     <!-- kesimpulan -->
+     <div id="kesimpulan" class="cards-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Kesimpulan</h2>
+                    <p class="p-heading p-large">Sistem ini hanya digunakan untuk membantu penentuan mentor terbaik, sistem merekomendasikan kriteria <b> Penguasaan Materi </b>, kriteria <b>Pengembangan Kurikulum </b>, & kriteria <b> Tanggung Jawab </b> sebagai acuan mentor terbaik</p>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of cards-2 -->
+    <!-- end of kesimpulan -->
+
+
     <!-- deskripsi -->
     <div id="deskripsi" class="basic-4">
         <div class="container">
