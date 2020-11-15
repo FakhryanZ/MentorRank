@@ -217,7 +217,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h2>Kesimpulan</h2>
-                    <p class="p-heading p-large">Sistem ini hanya digunakan untuk membantu penentuan mentor terbaik, sistem merekomendasikan kriteria <b> Penguasaan Materi </b>, kriteria <b>Pengembangan Kurikulum </b>, & kriteria <b> Tanggung Jawab </b> sebagai acuan mentor terbaik</p>
+                    <p class="p-heading p-large">Sistem ini hanya digunakan untuk membantu penentuan mentor terbaik. Sistem merekomendasikan 3 mentor terbaik yaitu mentor
+                    @for($i=0;$i < 3;$i++)
+                    <b> {{$tampung[$i][1]}}</b>, 
+                    @endfor
+                </p>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
