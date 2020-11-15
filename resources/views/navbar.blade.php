@@ -15,6 +15,7 @@
 
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="nav navbar-nav ">
+        @if ( Auth::check() )
             <li class="nav-item {{ Request::is('alternatif') ? 'active' : '' }}">
                 <a href="{{ route('alternatif') }}"><div class="nav-link">Alternatif</div></a>
             </li>
@@ -24,10 +25,19 @@
             <li class="nav-item {{ Request::is('datanilai') ? 'active' : '' }}">
                 <a href="/datanilai"><div class="nav-link">Data Nilai</div></a>
             </li>
+        @endif
             <li class="nav-item {{ Request::is('topsis') ? 'active' : '' }}">
                 <a href="{{ route('topsis') }}"><div class="nav-link">Perhitungan Topsis</div></a>
             </li>
         </ul>
+
+        @if ( !Auth::check() )
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="/login"><div class="nav-link active">Login</div></a>
+            </li>
+        </ul>
+        @endif
        
         @if ( Auth::check() )
         <ul class="nav navbar-nav ml-auto">
