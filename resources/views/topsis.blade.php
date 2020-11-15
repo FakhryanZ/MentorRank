@@ -151,7 +151,7 @@
             </table>
   </div>
 
-  <div class="card card-body mt-4">
+  {{-- <div class="card card-body mt-4">
     <h4>Jarak Alternatif Ideal</h4>
             <table class="table table-striped table-bordered table-hover">
                 <thead class="text-center">
@@ -203,32 +203,6 @@
                 @endforeach
 
                 </tbody>
-            </table>
+            </table> --}}
     </div>
-
-    
-    <div class="card card-body mt-4">
-    <h4>Perankingan</h4>
-            <table class="table table-striped table-bordered table-hover">
-                <thead class="text-center">
-                  <tr>
-                    <th>No.</th>
-                    <th>Kode</th>
-                    <th>Alternatif</th>
-                    <th>Skor Akhir (V)</th>
-                  </tr>
-                </thead>
-                <tbody class="text-center">
-                  @for ($i=0; $i < $sorting; $i++)
-                    <tr>
-                      <td>{{$i + 1}}.</td>
-                      <td>{{$tampung[$i][0]}}</td>
-                      <td align='left'>{{$tampung[$i][1]}}</td>
-                      <td>{{$tampung[$i][2]}}</td> 
-                    </tr>
-                  @endfor
-                </tbody>
-            </table>
-        </div>
-		</div>
 @endsection
